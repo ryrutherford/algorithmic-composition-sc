@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/ico" href="img/favicon.ico">
+        
+        <title>Algorithmic Composition</title>
+    </head>
+    <body>
+        <section class="header">
+            <div class="header__box">
+                <h1 class="header__box--title">Algorithmic Composition</h1>
+                <p class="header__box--text">
+                    A project focused on composing music with math and code.
+                </p>
+            </div>
+        </section>
+        <section class="content">
+            <div class="content__section">
+                <h3 class="content__section--heading">Problem Setup</h3>
+                <span class="content__section--divider"></span>
+                <p class="content__section--text">
+                    The goal of this project was to develop a set of algorithms that could generate a random
+                    sequence of musical events that sounded good. There are many different versions of algorithmic
+                    composition and past efforts have used a wide variety of tools and methodologies ranging from generative
+                    machine learning models to simple Max/MSP patches. For this project I decided to use
+                    <a href="https://supercollider.github.io/" target="_blank" rel="noopener noreferrer">SuperCollider</a>,
+                    an open source platform for audio synthesis and algorithmic composition.
+                </p>
+            </div>
+            <div class="content__section">
+                <h3 class="content__section--heading">Experimental Procedure</h3>
+                <span class="content__section--divider"></span>
+                <p class="content__section--text">
+                    Before starting the project, I had to learn how to use SuperCollider. SuperCollider is divided into
+                    three different components: scsynth (a real time audio server that receives OSC messages), 
+                    sclang (an interpreted programming language), and scide (the sclang IDE). All three components were used in 
+                    this project. The workflow was as follows: scsynth processed the synthesizer and musical pattern messages that were created using 
+                    sclang in scide.
+                </p>
+                <p class="content__section--text">
+                    Since I had never been exposed to algorithmic composition before, I learned about some of the different
+                    techniques and tools available in SuperCollider by watching videos by 
+                    <a href="https://www.youtube.com/channel/UCT31Un8gBhVQo1wXOy8Bpng" target="_blank" rel="noopener noreferrer">Manifest Heap</a> and 
+                    <a href="https://www.youtube.com/user/elifieldsteel" target="_blank" rel="noopener noreferrer">Eli Fieldsteel</a>. 
+                    It was through these videos that I learned how to make my own synths in SuperCollider and how to use one of the key aspects of 
+                    algorithmic composition, patterns and randomness.
+                </p>
+                <p class="content__section--text">
+                    At first I wanted to make an algorithmic music generator for the Tech House genre; however, I quickly realized that this 
+                    was a challenging endeavour as Tech House requires a very specific structure and doesn't lend itself very well to the random nature 
+                    of algorithmic composition in SuperCollider. Hence, I decided to go for a more ambient, cinematic and percussion free style of music as
+                    in my opinion true randomness and percussion do not go well together.
+                </p>
+                <p class="content__section--text">
+                    Originally I was using MIDI messages and the GM-01 soundset in my compositions; however, 
+                    sound selection is a very important part of a person's perception of music and the GM-01 soundset did not have the right sounds for me. 
+                    Therefore, I spent a lot of time researching how I could use a different soundset. I experimented with routing the MIDI channel messages to 
+                    separate tracks and instruments in FL Studio (a DAW); however, this didn't work as I was unable to sync FL Studio's internal clock with 
+                    SuperCollider's tempo clock so the messages were not in tempo. I also tried routing the MIDI messages to an external synthesizer; however, my external synth 
+                    (the Roland GAIA SH-01) could only receive messages on one channel at a time, making it impossible to use the synth's multiple different banks concurrently. 
+                    I was close to resigning myself to using the GM-01 soundset but eventually discovered I could use SuperCollider synthesizers
+                    as the instrument in a message to the OSC server.
+                </p>
+                <p class="content__section--text">
+                    Patterns in SuperCollider are very powerful and can be used to send MIDI messages from a MIDI device or 
+                    send musical messages to an OSC server. In SuperCollider, patterns can be thought of as an abstraction of a computational task and they are often 
+                    used to produce streams of information such as musical events. In my project, each component of a composition (e.g. a pad, a lead) was represented as a combination 
+                    of several different patterns. This setup allows you to randomly modify aspects of a musical message like pitch, 
+                    amplitude, and duration each time an event for that component is generated. If using a SuperCollider synth, parameters of that synth such as the detune value, asdr envelope, 
+                    or bandpass filter frequency range can also be randomly modified each time an event is generated. In addition to randomizing aspects of a musical event, I also randomized the key and the tempo of the composition each time a new composition was generated.
+                </p>
+            </div>
+            <div class="content__section">
+                <h3 class="content__section--heading">Results</h3>
+                <span class="content__section--divider"></span>
+                <p class="content__section--text">
+                    The goal of this project was to make an ambient, cinematic style music generator so I had to find synths that would fit into this style. I used three different synths in my project, two of which were a simple pad and lead 
+                    made by professors and students at Santa Clara University. They were accessible as a 
+                    <a href="https://github.com/SCLOrkHub/SCLOrkSynths" target="_blank" rel="noopener noreferrer">SuperCollider Quark</a>. The 
+                    other one was a very powerful bandpass filtered sawtooth wave designed by Eli Fieldsteel. This synth could be modified extensively to make a range of sounds and I used it as a pad, 
+                    a lead, and a rhythmic droplet.
+                </p>
+                <p class="content__section--text">
+                    In order to have some control over the randomness of the musical events, pitches of notes and chords, duration, amplitude and other parameters were only selected out of a range or pool of specified values. 
+                    In addition, detune values of the synth, panning, filter frequencies and other parameters were randomized, meaning each new composition would be unlike the previous ones. When composing the piece, I used Manifest Heap's 
+                    <a href="https://github.com/shimpe/sc-timeline" target="_blank" rel="noopener noreferrer">sc-timeline</a> Quark to schedule events. 
+                    This way I could give the composed piece some structure. Despite only using three synths, through layering I was able to give the piece a very ambient feel. The image below shows the different scheduled events and at what beat range they appeared in the piece.
+                </p>
+                <img src="img/timeline.png" alt="Image of the composition timeline" class="content__section--image">
+                <p class="content__section--text">
+                    A sample composition can be seen in the video below. 
+                </p>
+                <video src=""></video>
+            </div>
+            <div class="content__section">
+                <h3 class="content__section--heading">Future Work</h3>
+                <span class="content__section--divider"></span>
+                <p class="content__section--text">
+                    If I were to tackle the problem of algorithmic composition again I think I would look into the machine learning approach. I have experience using 
+                    machine learning in NLP and data science; however, I thought that it would be too complicated given the time constraints of this project.
+                </p>
+            </div>
+        </section>
+        <section class="footer">
+
+        </section>
+    </body>
+</html>

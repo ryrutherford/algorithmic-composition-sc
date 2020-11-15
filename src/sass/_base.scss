@@ -1,0 +1,62 @@
+//FONT
+$default-font-size: 1.6rem;
+$title-font-size: 3rem;
+$heading-font-size: 2.2rem;
+
+//COLORS
+$color-primary: #398ad7;
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //defines what 1 rem is
+  font-size: 62.5%;
+
+  @include respond (tab-land) { //width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 56.25%
+  }
+  @include respond (tab-port) { //width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 60%
+  }
+  @include respond (big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 4rem;
+
+    @include respond (tab-port) { //width < 900?
+        padding: 0; //1 rem = 8px, 8/16 = 60%
+    }
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: $default-font-size;
+    line-height: 1.7;
+    color: $color-grey-dark;
+}
+
+p::selection {
+    background: $color-grey-dark-2;
+    color: $color-grey-light-1;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+    color: $color-primary;
+    text-decoration: none;
+}

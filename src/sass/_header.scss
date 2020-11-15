@@ -1,0 +1,20 @@
+.header {
+
+    &__box{
+        background-color: $color-primary;
+        height: 50vh;
+        color: $color-grey-light-1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &--title{
+            font-size: $title-font-size;
+        }
+
+        &--text{
+            font-size: $default-font-size;
+        }
+    }
+}

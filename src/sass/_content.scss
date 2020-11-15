@@ -1,0 +1,31 @@
+.content {
+    padding-top: 2rem;
+
+    &__section{
+        &:not(:last-child){
+            padding-bottom: 1.5rem;
+        }
+        &--heading {
+            font-size: $heading-font-size;
+        }
+        &--divider {
+            display: block;
+            width: 100%;
+            border-top: 0.2rem solid $color-primary;
+        }
+
+        &--text {
+            padding-top: 1rem;
+        }
+
+        &--image{
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            display: block;
+            margin: 0 auto;
+            max-width: 80%;
+            width: auto;
+            height: auto;
+        }
+    }
+}
