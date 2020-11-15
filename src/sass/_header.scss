@@ -1,7 +1,8 @@
 .header {
 
     &__box{
-        background-color: $color-primary;
+        //background-color: $color-primary;
+        background-image: linear-gradient(to right, $color-secondary, $color-primary);
         height: 50vh;
         color: $color-grey-light-1;
         display: flex;
@@ -11,10 +12,25 @@
 
         &--title{
             font-size: $title-font-size;
+            margin-top: auto;
         }
 
         &--text{
+            text-align: center;
             font-size: $default-font-size;
+            margin-bottom: auto;
+        }
+
+        &--buttons{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+
+            & > a{
+                margin-left: 2rem;
+                margin-right: 2rem;
+            }
         }
     }
 }

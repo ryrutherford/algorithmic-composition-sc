@@ -5,11 +5,13 @@ $heading-font-size: 2.2rem;
 
 //COLORS
 $color-primary: #398ad7;
+$color-secondary: #2f66a9;
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
 $color-grey-dark: #777;
 $color-grey-dark-2: #999;
 $color-grey-dark-3: #333;
+$color-black: #000;
 
 *,
 *::after,
@@ -36,11 +38,16 @@ html {
 
 body {
     box-sizing: border-box;
-    padding: 4rem;
+    padding: 4rem 4rem 0 4rem;
 
-    @include respond (tab-port) { //width < 900?
-        padding: 0; //1 rem = 8px, 8/16 = 60%
+    @include respond (tab-port) {
+        padding: 3rem 3rem 0 3rem;
     }
+
+    @include respond (phone) {
+      padding: 2rem 2rem 0 2rem;
+    }
+    
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-size: $default-font-size;
@@ -48,7 +55,7 @@ body {
     color: $color-grey-dark;
 }
 
-p::selection {
+*::selection {
     background: $color-grey-dark-2;
     color: $color-grey-light-1;
 }
@@ -59,4 +66,49 @@ a:visited,
 a:active {
     color: $color-primary;
     text-decoration: none;
+}
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+      width: 17rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      padding: 0.75rem 4rem;
+      border-radius: .2rem;
+      display: inline-block;
+      transition: all .2s;
+      position: relative;
+      font-size: $default-font-size;
+      border: none;
+      cursor: pointer;
+  }
+
+  &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+      &::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+      }
+  }
+    
+  &:active,
+  &:focus {
+      outline: none;
+      transform: translateY(-1px);
+      box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+  }
+  
+  &--white {
+      background-color: $color-grey-light-1;
+      color: $color-grey-dark;
+
+      &::after {
+          background-color: $color-grey-light-1;
+      }
+  }
 }

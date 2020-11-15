@@ -11,7 +11,9 @@
         &--divider {
             display: block;
             width: 100%;
-            border-top: 0.2rem solid $color-primary;
+            height: .2rem;
+            //border-top: 0.2rem solid $color-primary;
+            background-image: linear-gradient(to bottom right, $color-secondary, $color-primary);
         }
 
         &--text {
@@ -26,6 +28,17 @@
             max-width: 80%;
             width: auto;
             height: auto;
+        }
+
+        &--video {
+            padding-top: 1.5rem;
+            padding-bottom: 1rem;
+            display: block;
+            margin: 0 auto;
+            max-width: 75%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
         }
     }
 }
