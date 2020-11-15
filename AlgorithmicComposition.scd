@@ -216,6 +216,12 @@ SynthDef(\rbuf, {
 			~scale.at(~middleOfScale + 13)
 		],
 		[
+			~scale.at(~middleOfScale - 5),
+			~scale.at(~middleOfScale + 2), ~scale.at(~middleOfScale + 8),
+			~scale.at(~middleOfScale + 10), ~scale.at(~middleOfScale + 11),
+			~scale.at(~middleOfScale + 13)
+		],
+		[
 			~scale.at(~middleOfScale - 8), ~scale.at(~middleOfScale + 5),
 			~scale.at(~middleOfScale + 7), ~scale.at(~middleOfScale + 8),
 			~scale.at(~middleOfScale + 10)
@@ -253,6 +259,12 @@ SynthDef(\rbuf, {
 			~scale.at(~middleOfScale + 13)
 		],
 		[
+			~scale.at(~middleOfScale - 5),
+			~scale.at(~middleOfScale + 2), ~scale.at(~middleOfScale + 8),
+			~scale.at(~middleOfScale + 10), ~scale.at(~middleOfScale + 11),
+			~scale.at(~middleOfScale + 13)
+		],
+		[
 			~scale.at(~middleOfScale - 8), ~scale.at(~middleOfScale + 5),
 			~scale.at(~middleOfScale + 7), ~scale.at(~middleOfScale + 8),
 			~scale.at(~middleOfScale + 10)
@@ -285,6 +297,12 @@ SynthDef(\rbuf, {
 			~scale.at(~middleOfScale + 11)
 		],
 		[
+			~scale.at(~middleOfScale + 2), ~scale.at(~middleOfScale + 8),
+			~scale.at(~middleOfScale + 10), ~scale.at(~middleOfScale + 11),
+			~scale.at(~middleOfScale + 13)
+		],
+		[
+			~scale.at(~middleOfScale - 5),
 			~scale.at(~middleOfScale + 2), ~scale.at(~middleOfScale + 8),
 			~scale.at(~middleOfScale + 10), ~scale.at(~middleOfScale + 11),
 			~scale.at(~middleOfScale + 13)
@@ -409,16 +427,19 @@ SynthDef(\rbuf, {
 //melodic saw pattern that plays a random note every 2 beats with a random panning and amplitude
 ~melSaw = Pbind(
 	\instrument, \bpfsaw,
-	\dur, 2,
+	\dur, Prand([2,4], inf),
 	\midinote, Prand([
 		~scale.at(~middleOfScale + 7),
 		~scale.at(~middleOfScale + 11),
 		~scale.at(~middleOfScale + 9),
-		~scale.at(~middleOfScale + 7),
-		~scale.at(~middleOfScale + 6),
+		~scale.at(~middleOfScale + 8),
 		~scale.at(~middleOfScale + 6),
 		~scale.at(~middleOfScale + 5),
+		~scale.at(~middleOfScale + 2),
 		~scale.at(~middleOfScale),
+		[~scale.at(~middleOfScale + 2) + 7, ~scale.at(~middleOfScale + 9) + 7],
+		[~scale.at(~middleOfScale + 5) + 7, ~scale.at(~middleOfScale + 12) + 7],
+		[~scale.at(~middleOfScale + 4) + 7, ~scale.at(~middleOfScale + 11) + 7]
 	], inf), //Pseq for controlled
 	\detune, 0.08, //0.008 for controlled
 	\cfmin, 100,
@@ -451,7 +472,6 @@ SynthDef(\rbuf, {
 	\out, 0,
 );
 )
-
 //random composition
 //run this code to play the composition
 (
