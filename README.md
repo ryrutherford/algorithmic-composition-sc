@@ -2,4 +2,4 @@
 
 In this project, I used SuperCollider patterns, synthdefs, and OSC messages to generate a random ambient, cinematic style composition.
 
-Please visit the website for more information and a sample composition (website will be released around December 1st).
+Please visit the website for more information and a sample composition (https://algorithmic-composition.web.app/)
