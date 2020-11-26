@@ -37,14 +37,11 @@
         }
 
         &--video {
-            padding-top: 1.5rem;
-            padding-bottom: 1rem;
+            margin: 1.5rem auto 1rem auto;
             display: block;
-            margin: 0 auto;
-            max-width: 75%;
-            width: auto;
-            height: auto;
-            object-fit: cover;
+            max-width: 90%;
+            width: 64rem;
+            height: 36rem;
         }
 
         &:hover {
