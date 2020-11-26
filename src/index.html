@@ -107,10 +107,8 @@
             <div class="content__section" id="composition">
                 <h3 class="content__section--heading">Sample Composition</h3>
                 <span class="content__section--divider"></span>
-                <video class=content__section--video controls>
-                    <source src="img/random.mp4" type="video/mp4"/>
-                    Your browser is not supported.
-                </video>
+                <iframe class="content__section--video" src="https://www.youtube.com/embed/bizP17Zb3jM">
+                </iframe>
             </div>
             <div class="content__section">
                 <h3 class="content__section--heading">Limitations and Future Work</h3>
@@ -130,5 +128,13 @@
         <section class="footer">
             <span class="footer--text"><a href="https://github.com/ryrutherford">Ry Rutherford</a> &copy; 2020</span>
         </section>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <!-- Initialize Firebase -->
+        <script src="/__/firebase/init.js"></script>
     </body>
 </html>
