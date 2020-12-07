@@ -81,7 +81,7 @@ index = 0;
 
 
 //band pass filtered saw synth created by Eli Fieldsteel
-//I DID NOT MAKE THIS SYNTHDEF
+//I DID NOT MAKE THIS SYNTHDEF see https://youtu.be/lGs7JOOVjag?t=769
 (
 SynthDef(\bpfsaw, {
 	arg atk=2, sus=0, rel=3, c1=1, c2=(-1), freq=500,
